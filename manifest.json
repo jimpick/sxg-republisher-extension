@@ -2,20 +2,14 @@
   "name": "SXG Republisher Viewer",
   "version": "0.1",
   "description": "Fetches SXG files published to IPFS",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://ipfs.v6z.me/",
+    "*://*.ipfs.v6z.me/"
+  ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "options_page": "options.html",
-  "page_action": {
-    "default_popup": "popup.html",
-		"default_icon": {
-			"16": "images/get_started16.png",
-			"32": "images/get_started32.png",
-			"48": "images/get_started48.png",
-			"128": "images/get_started128.png"
-		}
+    "scripts": ["background.js"]
   },
 	"icons": {
 		"16": "images/get_started16.png",

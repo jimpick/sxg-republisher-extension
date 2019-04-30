@@ -1,23 +1,18 @@
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-    console.log("The color is green.");
-  });
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules(
-      [
-        {
-          conditions: [
-            new chrome.declarativeContent.PageStateMatcher({
-              pageUrl: {
-                hostEquals: 'developer.chrome.com'
-              }
-            })
-          ],
-          actions: [
-            new chrome.declarativeContent.ShowPageAction()
-          ]
-        }
-      ]
-    );
-  });
-});
+chrome.webRequest.onBeforeRequest.addListener(
+  function(info) {
+    console.log("Url: " + info.url);
+    // Redirect the lolcal request to a random loldog URL.
+    return {
+      redirectUrl: 'https://ipfs.jimpick.com/ipfs/QmU8j8nEf1VVzb5RMqfQgp9RqE9XxtZBEcS8HTkaZSYzTj/ipfs.v6z.me.hello.sxg'
+    };
+  },
+  // filters
+  {
+    urls: [
+      "*://ipfs.v6z.me/*",
+      "*://*.ipfs.v6z.me/*"
+    ]
+  },
+  // extraInfoSpec
+  ["blocking"]
+);
