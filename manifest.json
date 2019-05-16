@@ -3,6 +3,7 @@
   "version": "0.1",
   "description": "Fetches SXG files published to IPFS",
   "permissions": [
+    "activeTab",
     "webRequest",
     "webRequestBlocking",
     "*://ipfs.v6z.me/",

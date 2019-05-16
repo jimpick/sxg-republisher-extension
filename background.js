@@ -30,20 +30,57 @@ chrome.webRequest.onBeforeRequest.addListener(
       }
     }
     */
-    if (host === 'ipfs-docs-jimpick.ipfs.v6z.me') {
-      const cid = 'QmSr6MvvPWMzUaiuoWye713tWxxmyunMuK11DZytzcy8oS'
-      const assetsCid = 'QmXSHCEUJfFhGvw6U1aSuMtSTSnCmWcwvnCHdSZwbfRyer'
+    if (host === 'ipld-jimpick.ipfs.v6z.me') {
+      const cid = 'QmQCLv8ogu3t8t6HczbwpyJTGinmketphzE69z1nCsKkcJ'
+      const assetsCid = 'QmXb2bKQdgNhC7vaiKQgXFtt7daUZD382L54UTTNXnwQTD'
       if (path.endsWith('.html')) {
         return {
-          redirectUrl: `https://ipfs.jimpick.com/ipfs/${cid}${path}.sxg`
+          redirectUrl: `https://ipfs.io/ipfs/${cid}${path}.sxg`
         }
       }
       return {
-        redirectUrl: `https://ipfs.jimpick.com/ipfs/${assetsCid}${path}`
+        redirectUrl: `https://ipfs.io/ipfs/${assetsCid}${path}`
+      }
+    }
+    if (host === 'peerpad-jimpick.ipfs.v6z.me') {
+      const cid = 'QmeeMqA8BAcAxQe58f3E886xS4JvNSRR3uz6CivPgsGMDS'
+      const assetsCid = 'QmWbsqqqG9YpNYDt5afp6HY8TrKMtCtdGUtUfgkS9fRYeH'
+      if (path.endsWith('.html')) {
+        return {
+          redirectUrl: `https://ipfs.io/ipfs/${cid}${path}.sxg`
+        }
+      }
+      return {
+        redirectUrl: `https://ipfs.io/ipfs/${assetsCid}${path}`
+      }
+    }
+    if (host === 'ipfs-docs-jimpick.ipfs.v6z.me') {
+      const cid = 'QmTXhjNmRiM5yL4mNs2bcq4MTZDkr1x5b8K2W41UdAGJqJ'
+      const assetsCid = 'QmXSHCEUJfFhGvw6U1aSuMtSTSnCmWcwvnCHdSZwbfRyer'
+      if (path.endsWith('.html')) {
+        return {
+          redirectUrl: `https://ipfs.io/ipfs/${cid}${path}.sxg`
+        }
+      }
+      return {
+        redirectUrl: `https://ipfs.io/ipfs/${assetsCid}${path}`
+      }
+    }
+    if (host === 'index-jimpick.ipfs.v6z.me') {
+      const cid = 'QmcgNj5wdUW5aRCdoimgFYqkkD2TLafTwzwjcudYpqGxeT'
+      const assetsCid = 'Qmcz7jdZPumWFdPFVJq7s3dWTZMFHtMVHyjurRthdMsNNi'
+      if (path.endsWith('.html')) {
+        return {
+          redirectUrl: `https://ipfs.io/ipfs/${cid}${path}.sxg`
+        }
+      }
+      return {
+        redirectUrl: `https://ipfs.io/ipfs/${assetsCid}${path}`
       }
     }
     return {
-      redirectUrl: 'https://ipfs.jimpick.com/ipfs/QmU8j8nEf1VVzb5RMqfQgp9RqE9XxtZBEcS8HTkaZSYzTj/ipfs.v6z.me.hello.sxg'
+      // redirectUrl: 'https://ipfs.io/ipfs/Qmcz7jdZPumWFdPFVJq7s3dWTZMFHtMVHyjurRthdMsNNi/'
+      redirectUrl: 'https://index-jimpick.ipfs.v6z.me/'
     }
   },
   // filters
@@ -56,3 +93,4 @@ chrome.webRequest.onBeforeRequest.addListener(
   // extraInfoSpec
   ["blocking"]
 )
+
