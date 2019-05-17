@@ -60,7 +60,7 @@ chrome.webRequest.onBeforeRequest.addListener(
   function (info) {
     console.log("Url: " + info.url)
 
-    const { host, pathname } = new URL(info.url)
+    const { host, pathname, hash } = new URL(info.url)
     addMapping(host)
     let path = pathname
     if (path.endsWith('/')) {
@@ -107,11 +107,11 @@ chrome.webRequest.onBeforeRequest.addListener(
     }
     if (path.endsWith('.html')) {
       return {
-        redirectUrl: `https://ipfs.io/ipfs/${mapping.sxgCid}${path}.sxg`
+        redirectUrl: `https://ipfs.io/ipfs/${mapping.sxgCid}${path}.sxg${hash}`
       }
     }
     return {
-      redirectUrl: `https://ipfs.io/ipfs/${mapping.assetsCid}${path}`
+      redirectUrl: `https://ipfs.io/ipfs/${mapping.assetsCid}${path}${hash}`
     }
   },
   // filters
