@@ -2,6 +2,10 @@ const hostMappings = {}
 let redirectCount = 0
 let redirectTimestamp = 0
 
+// const gateway = 'ipfs.io'
+// const apiHost = 'ipfs.io'
+const gateway = 'ipfs.jimpick.com'
+const apiHost = gateway
 const indexPage = 'https://index-jimpick.ipfs.v6z.me/'
 
 async function addMapping (host) {
@@ -14,7 +18,7 @@ async function addMapping (host) {
     delete hostMappings[host].error
     console.log('addMapping', host, now)
 
-    const assetUrl = `https://ipfs.io/api/v0/dns/${host}?r=true`
+    const assetUrl = `https://${apiHost}/api/v0/dns/${host}?r=true`
     const assetRes = await fetch(assetUrl)
     const assetJson = await assetRes.json()
     const assetPath = assetJson.Path
@@ -33,7 +37,7 @@ async function addMapping (host) {
     }
     hostMappings[host].assetsCid = assetMatch[1]
 
-    const sxgUrl = `https://ipfs.io/api/v0/dns/sxg.${host}?r=true`
+    const sxgUrl = `https://${apiHost}/api/v0/dns/sxg.${host}?r=true`
     const sxgRes = await fetch(sxgUrl)
     const sxgJson = await sxgRes.json()
     const sxgPath = sxgJson.Path
@@ -107,11 +111,11 @@ chrome.webRequest.onBeforeRequest.addListener(
     }
     if (path.endsWith('.html')) {
       return {
-        redirectUrl: `https://ipfs.io/ipfs/${mapping.sxgCid}${path}.sxg${hash}`
+        redirectUrl: `https://${gateway}/ipfs/${mapping.sxgCid}${path}.sxg${hash}`
       }
     }
     return {
-      redirectUrl: `https://ipfs.io/ipfs/${mapping.assetsCid}${path}${hash}`
+      redirectUrl: `https://${gateway}/ipfs/${mapping.assetsCid}${path}${hash}`
     }
   },
   // filters
