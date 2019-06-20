@@ -111,11 +111,11 @@ chrome.webRequest.onBeforeRequest.addListener(
     }
     if (path.endsWith('.html')) {
       return {
-        redirectUrl: `https://${gateway}/ipfs/${mapping.sxgCid}${path}.sxg${hash}`
+        redirectUrl: `https://${gateway}/ipfs/${mapping.sxgCid}${path}.sxg?q=x-ipfs-companion-no-redirect${hash}`
       }
     }
     return {
-      redirectUrl: `https://${gateway}/ipfs/${mapping.assetsCid}${path}${hash}`
+      redirectUrl: `https://${gateway}/ipfs/${mapping.assetsCid}${path}?q=x-ipfs-companion-no-redirect${hash}`
     }
   },
   // filters
