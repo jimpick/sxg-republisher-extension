@@ -2,9 +2,9 @@ sxg-republisher-extension
 =========================
 
 An demo extension that loads content from the *.ipfs.v6z.me subdomains
-using an IPFS gateway and [HTTP Signed Exchanges](https://developers.google.com/web/updates/2018/11/signed-exchanges).
+using an IPFS gateway and Google Chrome [HTTP Signed Exchanges](https://developers.google.com/web/updates/2018/11/signed-exchanges).
 
-Install it and try to load this page:
+Install it ([manually, using developer mode](https://developer.chrome.com/extensions/getstarted#manifest)) and try to load this page:
 
 https://index-jimpick.ipfs.v6z.me/index.html
 
